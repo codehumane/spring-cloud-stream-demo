@@ -1,4 +1,4 @@
-package codehumane.springcloudstreamdemo
+package codehumane.springcloudstreamdemo.stream
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -10,10 +10,10 @@ import java.util.function.Consumer
 
 @SpringBootApplication
 @EnableBinding(Sink::class)
-class SpringCloudStreamDemoApplication
+class StreamApplication
 
 fun main(args: Array<String>) {
-    runApplication<SpringCloudStreamDemoApplication>(*args)
+    runApplication<StreamApplication>(*args)
 }
 
 @Configuration

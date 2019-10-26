@@ -1,4 +1,4 @@
-package codehumane.springcloudstreamdemo
+package codehumane.springcloudstreamdemo.stream
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -7,10 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-class SpringCloudStreamDemoApplicationTests {
+class StreamApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
 }
