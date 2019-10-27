@@ -3,10 +3,10 @@ Content-Type: application/json
 
 {
   "userId": "user1",
-  "templateId": "T000000001",
+  "templateId": "T00001",
   "params": {
-    "hello": "world",
-    "my": "name"
+    "name": "gunhee",
+    "age": "10"
   }
 }
 

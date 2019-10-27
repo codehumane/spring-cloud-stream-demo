@@ -1,7 +1,7 @@
 package codehumane.springcloudstreamdemo.stream.adapter.messaging
 
+import codehumane.springcloudstreamdemo.core.domain.MessageInitialized
 import codehumane.springcloudstreamdemo.stream.application.MessageCommandService
-import codehumane.springcloudstreamdemo.stream.application.MessageCreateCommand
 import org.springframework.cloud.stream.annotation.StreamListener
 import org.springframework.cloud.stream.messaging.Sink
 import org.springframework.stereotype.Component
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component
 class RabbitMQMessageInitializeSubscriber(private val messageCommandService: MessageCommandService) {
 
     @StreamListener(Sink.INPUT)
-    fun receiveInitialized(command: MessageCreateCommand) {
-        messageCommandService.create(command)
+    fun receiveInitialized(event: MessageInitialized) {
+        messageCommandService.createBy(event)
     }
 
 }
