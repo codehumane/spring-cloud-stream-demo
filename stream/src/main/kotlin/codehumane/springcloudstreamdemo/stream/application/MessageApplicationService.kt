@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.stereotype.Service
 
 @Service
-class MessageCommandService(
+class MessageApplicationService(
     private val objectMapper: ObjectMapper,
     private val messageInitializePublisher: MessageInitializePublisher,
     private val messageInitializationRepository: MessageInitializationRepository,
@@ -89,6 +89,16 @@ class MessageCommandService(
         initialization.ifPresent {
             it.createdMessageId = message.id!!
             messageInitializationRepository.save(it)
+        }
+    }
+
+    fun get(): List<MessageRepresentation> {
+        return messageRepository.findAll().map {
+            MessageRepresentation(
+                it.id!!,
+                it.userId,
+                it.contents
+            )
         }
     }
 

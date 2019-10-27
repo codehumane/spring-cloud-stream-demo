@@ -1,19 +1,24 @@
 package codehumane.springcloudstreamdemo.stream.adapter.rest
 
-import codehumane.springcloudstreamdemo.stream.application.MessageCommandService
+import codehumane.springcloudstreamdemo.stream.application.MessageApplicationService
 import codehumane.springcloudstreamdemo.stream.application.MessageCreateCommand
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import codehumane.springcloudstreamdemo.stream.application.MessageRepresentation
+import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/alarm/message")
 class MessageInitializeController(
-    private val messageCommandService: MessageCommandService
+    private val messageApplicationService: MessageApplicationService
 ) {
 
-    @PostMapping("/alarm/message")
+    @PostMapping
     fun initialize(@RequestBody command: MessageCreateCommand) {
-        messageCommandService.initialize(command)
+        messageApplicationService.initialize(command)
+    }
+
+    @GetMapping
+    fun messages(): List<MessageRepresentation> {
+        return messageApplicationService.get()
     }
 
 }

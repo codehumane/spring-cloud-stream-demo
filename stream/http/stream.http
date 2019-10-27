@@ -6,9 +6,15 @@ Content-Type: application/json
   "templateId": "T00001",
   "params": {
     "name": "gunhee",
-    "age": "10"
+    "age": "11"
   }
 }
 
+
+
 ###
 
+GET http://localhost:8080/alarm/message
+Accept: application/json
+
+###
