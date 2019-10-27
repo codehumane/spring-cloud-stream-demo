@@ -1,0 +1,14 @@
+POST http://localhost:8080/alarm/message
+Content-Type: application/json
+
+{
+  "userId": "user1",
+  "templateId": "T000000001",
+  "params": {
+    "hello": "world",
+    "my": "name"
+  }
+}
+
+###
+
