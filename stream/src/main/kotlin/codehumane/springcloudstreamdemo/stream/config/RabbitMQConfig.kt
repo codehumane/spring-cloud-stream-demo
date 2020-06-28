@@ -1,10 +1,21 @@
 package codehumane.springcloudstreamdemo.stream.config
 
-import org.springframework.cloud.stream.annotation.EnableBinding
-import org.springframework.cloud.stream.messaging.Sink
+import com.fasterxml.jackson.databind.ObjectMapper
+import org.springframework.amqp.core.Queue
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 
 @Configuration
-@EnableBinding(Sink::class)
-class RabbitMQConfig
+class RabbitMQConfig {
+
+    @Bean
+    fun myQueue(@Value("\${app.rabbitmq.queue.name}") queueName: String) = Queue(queueName)
+
+    @Bean
+    fun jacksonMessageConverter(objectMapper: ObjectMapper) =
+        Jackson2JsonMessageConverter(objectMapper)
+
+}

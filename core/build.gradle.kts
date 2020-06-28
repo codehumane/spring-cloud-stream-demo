@@ -14,5 +14,5 @@ allOpen {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.1.9.RELEASE")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("com.h2database:h2:1.4.200")
 }
